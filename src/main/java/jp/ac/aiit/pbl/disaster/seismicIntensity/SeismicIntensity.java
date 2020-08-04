@@ -39,6 +39,10 @@ public class SeismicIntensity implements Disaster {
         this.prefix = prefix;
     }
     
+    public Prefix getPrefix() {
+        return prefix;
+    }
+    
     @Override
     public String toString() {
         return "SeismicIntensity{" +
