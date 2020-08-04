@@ -3,7 +3,11 @@ package jp.ac.aiit.pbl.disaster.tsunami;
 import static org.junit.Assert.*;
 
 import jp.ac.aiit.pbl.disaster.DisasterCategory;
+import jp.ac.aiit.pbl.disaster.earthquakeearlywarning.Notification;
 import org.junit.Test;
+
+import java.time.LocalDateTime;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -111,6 +115,25 @@ public class TsunamiParserTest {
         assertThat(tsunami.getDisasterCategory(), is(DisasterCategory.Tsunami));
         assertThat(tsunami.getNotifications().size(), is(3));
         assertThat(tsunami.getWarningCode().getCode(), is(15));
+        assertThat(tsunami.getWarningCode(), is(WarningCode.OtherAlarms));
+        assertThat(tsunami.getNotifications().get(0), is(Notification.Notification101));
+        assertThat(tsunami.getNotifications().get(1), is(Notification.Notification102));
+        assertThat(tsunami.getNotifications().get(2), is(Notification.Notification103));
         assertThat(tsunami.getTsunamiRegions().size(), is(5));
+        assertThat(tsunami.getTsunamiRegions().get(0).getExpectedArrivalDate(), is(LocalDateTime.of(9999,5,17,0,0)));
+        assertThat(tsunami.getTsunamiRegions().get(0).getTsunamiForecastRegion(), is(TsunamiForecastRegion.HokkaidoPacificCoastEast));
+        assertThat(tsunami.getTsunamiRegions().get(0).getTsunamiHeight(), is(TsunamiHeight.OtherTsunamiHeights));
+        assertThat(tsunami.getTsunamiRegions().get(1).getExpectedArrivalDate(), is(LocalDateTime.of(9999,5,18,0,0)));
+        assertThat(tsunami.getTsunamiRegions().get(1).getTsunamiForecastRegion(), is(TsunamiForecastRegion.HokkaidoPacificCoastEast));
+        assertThat(tsunami.getTsunamiRegions().get(1).getTsunamiHeight(), is(TsunamiHeight.OtherTsunamiHeights));
+        assertThat(tsunami.getTsunamiRegions().get(2).getExpectedArrivalDate(), is(LocalDateTime.of(2020,5,18,23,59)));
+        assertThat(tsunami.getTsunamiRegions().get(2).getTsunamiForecastRegion(), is(TsunamiForecastRegion.HokkaidoPacificCoastEast));
+        assertThat(tsunami.getTsunamiRegions().get(2).getTsunamiHeight(), is(TsunamiHeight.OtherTsunamiHeights));
+        assertThat(tsunami.getTsunamiRegions().get(3).getExpectedArrivalDate(), is(LocalDateTime.of(2020,5,18,23,59)));
+        assertThat(tsunami.getTsunamiRegions().get(3).getTsunamiForecastRegion(), is(TsunamiForecastRegion.HokkaidoPacificCoastEast));
+        assertThat(tsunami.getTsunamiRegions().get(3).getTsunamiHeight(), is(TsunamiHeight.OtherTsunamiHeights));
+        assertThat(tsunami.getTsunamiRegions().get(4).getExpectedArrivalDate(), is(LocalDateTime.of(2020,5,18,23,59)));
+        assertThat(tsunami.getTsunamiRegions().get(4).getTsunamiForecastRegion(), is(TsunamiForecastRegion.HokkaidoPacificCoastEast));
+        assertThat(tsunami.getTsunamiRegions().get(4).getTsunamiHeight(), is(TsunamiHeight.OtherTsunamiHeights));
     }
 }

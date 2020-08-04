@@ -1,6 +1,7 @@
 package jp.ac.aiit.pbl.disaster.hypocenter;
 
 import jp.ac.aiit.pbl.disaster.DisasterCategory;
+import jp.ac.aiit.pbl.disaster.earthquakeearlywarning.Notification;
 import jp.ac.aiit.pbl.disaster.hypocenter.Hypocenter;
 import jp.ac.aiit.pbl.disaster.hypocenter.HypocenterParser;
 import org.junit.Test;
@@ -119,14 +120,18 @@ public class HypocenterParserTest {
     @Test
     public void hypocenterDigitTest(){
         HypocenterParser hypocenterParser = new HypocenterParser();
-        Hypocenter hypocenter = hypocenterParser.parse("110001101010110110010010110001010001011010000000000000011001010001110100011011110101100010001110000000000000101000000010111001111001111001111000001111001111001111000000000000000000000000000000000000000000000000000000000000000");
+        Hypocenter hypocenter = hypocenterParser.parse("110001101010110110010010110001010001011010000000000000011001010011110010011011110101100010001110000000000000101000000010111001111001111001111000001111001111001111000000000000000000000000000000000000000000000000000000000000000");
         
         assertThat(hypocenter.getDisasterCategory(), is(DisasterCategory.Hypocenter));
         assertThat(hypocenter.getOccurrenceTimeOfEarthquake(), is(LocalDateTime.of(2020,8,05,17,7)));
         assertThat(hypocenter.getDepthOfHypocenter(), is(0));
         assertThat(hypocenter.getMagnitude(), is(10.1));
         assertThat(hypocenter.getNotifications().size(), is(3));
+        assertThat(hypocenter.getNotifications().get(0), is(Notification.Notification101));
+        assertThat(hypocenter.getNotifications().get(1), is(Notification.Notification121));
+        assertThat(hypocenter.getNotifications().get(2), is(Notification.Notification111));
         assertThat(hypocenter.getSeismicEpicenter().getCode(), is(11));
+        assertThat(hypocenter.getSeismicEpicenter(), is(SeismicEpicenter.HokkaidoRegion));
         assertThat(hypocenter.isNorthLatitude(), is(false));
         assertThat(hypocenter.getLatitude(), is(30.508333333333333));
         assertThat(hypocenter.isEastLongitude(), is(true));
