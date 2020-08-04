@@ -1,5 +1,6 @@
 package jp.ac.aiit.pbl.disaster.nankaitroughearthquake;
 
+import jp.ac.aiit.pbl.disaster.DisasterCategory;
 import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;
@@ -13,42 +14,23 @@ public class NankaiTroughEarthquakeTest {
     @Test
     public void NankaiTroughEarthquakeToString() {
         NankaiTroughEarthquake nankaiTroughEarthquake = nankaiTroughEarthquakeParser.parse(qzqms);
-        System.out.println(nankaiTroughEarthquake.toString());
-    }
-
-    @Test
-    public void canGetNankaiTroughEarthquakeTextInformations() {
-        String expected = "ぁあぃいぅう";
-        assertThat(nankaiTroughEarthquake.getText(),is(expected));
-    }
-
-    @Test
-    public void canGetNankaiTroughEarthquakePageNumber() {
-        int expected = 2;
-        assertThat(nankaiTroughEarthquake.getPageNumber(),is(expected));
-    }
-
-    @Test
-    public void canGetNankaiTroughEarthquakeTotalPage() {
-        int expected = 4;
-        assertThat(nankaiTroughEarthquake.getTotalPage(),is(expected));
+        assertThat(nankaiTroughEarthquake.getPrefix().getDisasterCategory(),is(DisasterCategory.NankaiTroughEarthquake));
+        assertThat(nankaiTroughEarthquake.getText(),is("ぁあぃいぅう"));
+        assertThat(nankaiTroughEarthquake.getPageNumber(),is(2));
+        assertThat(nankaiTroughEarthquake.getTotalPage(),is(4));
     }
 
     @Test
     public void canGetByteCodes6() {
-        String expected = "１２３４５６";
-        String qzqms = "1001101010101101001000111001111011010110000000000000000001110111110111100100100011110111110111100100100101110111110111100100100111110111110111100100101001110111110111100100101011110111110111100100101100000100001000000001000000000000000000000000000001";
-        NankaiTroughEarthquakeParser nankaiTroughEarthquakeParser = new NankaiTroughEarthquakeParser();
-        NankaiTroughEarthquake nankaiTroughEarthquake = nankaiTroughEarthquakeParser.parse(qzqms);
-        assertThat(nankaiTroughEarthquake.getText(),is(expected));
+        String message = "1001101010101101001000111001111011010110000000000000000001110111110111100100100011110111110111100100100101110111110111100100100111110111110111100100101001110111110111100100101011110111110111100100101100000100001000000001000000000000000000000000000001";
+        NankaiTroughEarthquake nankai = nankaiTroughEarthquakeParser.parse(message);
+        assertThat(nankai.getText(),is("１２３４５６"));
     }
 
     @Test
     public void canGetByteCodes2() {
-        String expected = "１２";
-        String qzqms = "1001101010101101001000111001111011010110000000000000000001110111110111100100100011110111110111100100100100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100001000000001000000000000000000000000000001";
-        NankaiTroughEarthquakeParser nankaiTroughEarthquakeParser = new NankaiTroughEarthquakeParser();
-        NankaiTroughEarthquake nankaiTroughEarthquake = nankaiTroughEarthquakeParser.parse(qzqms);
-        assertThat(nankaiTroughEarthquake.getText(),is(expected));
+        String message = "1001101010101101001000111001111011010110000000000000000001110111110111100100100011110111110111100100100100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100001000000001000000000000000000000000000001";
+        NankaiTroughEarthquake nankaiTroughEarthquake = nankaiTroughEarthquakeParser.parse(message);
+        assertThat(nankaiTroughEarthquake.getText(),is("１２"));
     }
 }

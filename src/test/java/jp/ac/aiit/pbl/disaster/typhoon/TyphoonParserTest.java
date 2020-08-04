@@ -158,9 +158,6 @@ public class TyphoonParserTest {
         assertThat(typhoon.isEastLongitude(),is(expected));
     }
 
-    // @Test
-    // LongitudeLatitude https://vldb.gsi.go.jp/sokuchi/surveycalc/surveycalc/bl2stf.html
-
     @Test
     public void canGetCentralPressure() {
         int expected = 1013;
