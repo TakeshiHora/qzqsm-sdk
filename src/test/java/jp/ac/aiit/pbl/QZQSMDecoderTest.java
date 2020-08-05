@@ -1,7 +1,7 @@
 package jp.ac.aiit.pbl;
 
 import jp.ac.aiit.pbl.disaster.Disaster;
-import jp.ac.aiit.pbl.disaster.ashfall.AshFalll;
+import jp.ac.aiit.pbl.disaster.ashfall.AshFall;
 import jp.ac.aiit.pbl.disaster.marine.Marine;
 import org.junit.Test;
 
@@ -15,7 +15,7 @@ public class QZQSMDecoderTest {
     public void caseOfDecodingAshFall(){
         QZQSMDecoder decoder = new QZQSMDecoder();
         Disaster disaster = decoder.decode("9AAD4BFCAE8007CA243FF4C6A780C6353C0000000000000000000013757BC1C0");
-        assertThat(disaster, is(instanceOf(AshFalll.class)));
+        assertThat(disaster, is(instanceOf(AshFall.class)));
         System.out.println(disaster.toString());
     }
 

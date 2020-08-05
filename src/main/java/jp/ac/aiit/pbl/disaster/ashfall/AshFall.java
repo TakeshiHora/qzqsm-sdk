@@ -14,7 +14,7 @@ import java.util.List;
  * It consists of Activity Time, Warning Type, Volcano Name, Expected Ash Fall time, Warning Code and Local Government.
  */
 
-public class AshFalll implements Disaster {
+public class AshFall implements Disaster {
     private Prefix prefix;
     private LocalDateTime activityTime;                     //Activity Time(Td)Day(D1)  Hour(H1) Minute(M1)
     private WarningType warningtype;                        //WWarning Type(Dw1)
