@@ -16,8 +16,8 @@ import java.util.List;
 
 public class AshFallParser implements DisasterParser {
 
-    public AshFalll parse(String qzMessage){
-        AshFalll ashFall = new AshFalll();
+    public AshFall parse(String qzMessage){
+        AshFall ashFall = new AshFall();
 
         PrefixParser prefixParser = new PrefixParser();
         ashFall.setPrefix(prefixParser.parse(qzMessage));
