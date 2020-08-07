@@ -6,9 +6,9 @@ import java.util.Arrays;
  * Enumeration for TypeOfReferenceTime.
  */
 public enum TypeOfReferenceTime {
-    typeOfReferenceTimeLive(1, "実況"),
-    typeOfReferenceTimeEstimate(2, "推定"),
-    typeOfReferenceTimeForecast(3, "予報");
+    Live(1, "実況"),
+    Estimate(2, "推定"),
+    Forecast(3, "予報");
 
     private int id;
     private String typeOfReference;
