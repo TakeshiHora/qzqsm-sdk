@@ -60,7 +60,7 @@ public class TyphoonParserTest {
                 "1111111111" + "1111111111" + "1111" + /* CRC 24*/
                 "";
         Typhoon typhoon = typhoonParser.parse(qzqms);
-        TypeOfReferenceTime expected = TypeOfReferenceTime.typeOfReferenceTimeLive;
+        TypeOfReferenceTime expected = TypeOfReferenceTime.Live;
         assertThat(typhoon.getTypeOfReferenceTime(),is(expected));
     }
 
@@ -88,7 +88,7 @@ public class TyphoonParserTest {
                 "1111111111" + "1111111111" + "1111" + /* CRC 24*/
                 "";
         Typhoon typhoon = typhoonParser.parse(qzqms);
-        TypeOfReferenceTime expected = TypeOfReferenceTime.typeOfReferenceTimeEstimate;
+        TypeOfReferenceTime expected = TypeOfReferenceTime.Estimate;
         assertThat(typhoon.getTypeOfReferenceTime(),is(expected));
     }
 
@@ -116,7 +116,7 @@ public class TyphoonParserTest {
                 "1111111111" + "1111111111" + "1111" + /* CRC 24*/
                 "";
         Typhoon typhoon = typhoonParser.parse(qzqms);
-        TypeOfReferenceTime expected = TypeOfReferenceTime.typeOfReferenceTimeForecast;
+        TypeOfReferenceTime expected = TypeOfReferenceTime.Forecast;
         assertThat(typhoon.getTypeOfReferenceTime(),is(expected));
     }
 
