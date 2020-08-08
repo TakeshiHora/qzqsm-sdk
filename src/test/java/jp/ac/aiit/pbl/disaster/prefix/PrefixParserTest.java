@@ -20,7 +20,7 @@ public class PrefixParserTest {
         PrefixParser parser = new PrefixParser();
         Prefix prefix = parser.parse("1001101010101101111100101100010100010001100000000000001011000011111100100101");
         assertThat(prefix.getPreamble(),is(Preamble.PatternB));
-        assertThat(prefix.getMessageType(),is(MessageType.MT43));
+        assertThat(prefix.getMessageType(),is(MessageType.MT44));
         assertThat(prefix.getReportClassification(),is(ReportClassification.Regular));
         assertThat(prefix.getDisasterCategory(),is(DisasterCategory.Marine));
         assertThat(prefix.getReportTime(),is(LocalDateTime.of(2020,5,17,8,35)));
