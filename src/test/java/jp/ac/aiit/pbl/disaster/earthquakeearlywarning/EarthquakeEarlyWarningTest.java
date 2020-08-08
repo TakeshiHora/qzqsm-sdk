@@ -13,8 +13,6 @@ public class EarthquakeEarlyWarningTest {
         String qzMessage = "1001101010101111100010111010100000100000000000000000000110010100000000000000000001010000010000000000010101000100000000110010001011100001111100000000010000000000000000000000000000000000000100010000000000000000010000000001001011000111100111100111001001000000";
         EarthquakeEarlyWarningParser earlyWarningParser = new EarthquakeEarlyWarningParser();
         EarthquakeEarlyWarning earthquakeEarlyWarning = earlyWarningParser.parse(qzMessage);
-
-        System.out.println(earthquakeEarlyWarning.toString());
         assertThat(earthquakeEarlyWarning.getNotifications().get(0), is(Notification.Notification101));
         assertThat(earthquakeEarlyWarning.getNotifications().get(1), is(Notification.Notification0));
         assertThat(earthquakeEarlyWarning.getNotifications().get(2), is(Notification.Notification0));

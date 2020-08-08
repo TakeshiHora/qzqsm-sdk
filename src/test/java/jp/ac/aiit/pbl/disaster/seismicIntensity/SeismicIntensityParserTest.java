@@ -23,7 +23,6 @@ public class SeismicIntensityParserTest {
         SeismicIntensityParser seismicIntensityParser = new SeismicIntensityParser();
 
         SeismicIntensity seismicIntensity = seismicIntensityParser.parse("1100011010101101100110101100010100010110100000000000001011000100011101010101100010001111110010110001011111000001011001011101110000101100110000011010110110000011000000001011001111101000000101000010000000100000000000000000000000");
-        System.out.println(seismicIntensity.toString());
     }
     @Test
     public void seismicIntensityDigitTest(){

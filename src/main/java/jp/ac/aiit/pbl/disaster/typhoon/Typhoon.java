@@ -15,7 +15,8 @@ import java.time.ZonedDateTime;
 public class Typhoon implements Disaster {
 
     private Prefix prefix;
-    private LocalDateTime referenceTime;private ZonedDateTime referenceTimedayZone;
+    private LocalDateTime referenceTime;
+    private ZonedDateTime referenceTimeDayZone;
     private TypeOfReferenceTime typeOfReferenceTime;
     private int elapsedTimeFromReferenceTime;
     private int typhoonNumber;
@@ -146,11 +147,11 @@ public class Typhoon implements Disaster {
     }
 
     public ZonedDateTime getReferenceTimeDate() {
-        return referenceTimedayZone;
+        return referenceTimeDayZone;
     }
 
     public void setReferenceTimeDate(ZonedDateTime referenceTimeday) {
-        this.referenceTimedayZone = referenceTimeday;
+        this.referenceTimeDayZone = referenceTimeday;
         this.referenceTime = referenceTimeday.toLocalDateTime();
     }
 

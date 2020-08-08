@@ -12,7 +12,6 @@ public class FloodParserTest {
         FloodParser floodParser = new FloodParser();
         Flood flood = floodParser.parse(qzMessage);
 
-        System.out.println(flood.toString());
         assertThat(flood.getFloodWarningLevelAndForecastRegion().size(), is(1));
         assertThat(flood.getFloodWarningLevelAndForecastRegion().get(0).getWarningLevel(), is(WarningLevel.LEVEL2));
         assertThat(flood.getFloodWarningLevelAndForecastRegion().get(0).getFloodForecastRegion(), is(FloodForecastRegion.UDAGAWA));
@@ -24,7 +23,6 @@ public class FloodParserTest {
         FloodParser floodParser = new FloodParser();
         Flood flood = floodParser.parse(qzMessage);
 
-        System.out.println(flood.toString());
         assertThat(flood.getFloodWarningLevelAndForecastRegion().size(), is(3));
         assertThat(flood.getFloodWarningLevelAndForecastRegion().get(0).getWarningLevel(), is(WarningLevel.LEVEL2));
         assertThat(flood.getFloodWarningLevelAndForecastRegion().get(0).getFloodForecastRegion(), is(FloodForecastRegion.UDAGAWA));

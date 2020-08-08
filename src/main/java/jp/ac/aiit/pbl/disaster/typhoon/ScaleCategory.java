@@ -6,10 +6,10 @@ import java.util.Arrays;
  * Enumeration for ScaleCategory.
  */
 public enum ScaleCategory {
-    scaleCategoryNone(0, "なし"),
-    scaleCategoryLargeScale(1, "大型"),
-    scaleCategorySuperScale(2, "超大型"),
-    scaleCategoryOthers(15,"その他の大きさ階級分類");
+    None(0, "なし"),
+    LargeScale(1, "大型"),
+    SuperScale(2, "超大型"),
+    Others(15,"その他の大きさ階級分類");
 
     private int id;
     private String scaleCategory;

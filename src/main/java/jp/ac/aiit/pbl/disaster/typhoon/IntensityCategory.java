@@ -7,11 +7,11 @@ import java.util.Arrays;
  * @see <a href="https://foreignlang.ecc.co.jp/know/k00046d/">Category</a>
  */
 public enum IntensityCategory {
-    intensityCategoryNone(0, "なし"),
-    intensityCategoryTropicalStorm(1, "強い"),
-    intensitycategorySevereTropicalStorm(2, "非常に強い"),
-    intensitycategoryTyphoon(3, "猛烈な"),
-    intensitycategoryOthers(15,"その他の強さ階級分類");
+    None(0, "なし"),
+    TropicalStorm(1, "強い"),
+    SevereTropicalStorm(2, "非常に強い"),
+    Typhoon(3, "猛烈な"),
+    Others(15,"その他の強さ階級分類");
 
     private int id;
     private String intensityCategory;
