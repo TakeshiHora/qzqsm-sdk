@@ -1,6 +1,13 @@
 package jp.ac.aiit.pbl.disaster.typhoon;
 
+import jp.ac.aiit.pbl.disaster.DisasterCategory;
+import jp.ac.aiit.pbl.disaster.prefix.InformationType;
+import jp.ac.aiit.pbl.disaster.prefix.MessageType;
+import jp.ac.aiit.pbl.disaster.prefix.Preamble;
+import jp.ac.aiit.pbl.disaster.prefix.ReportClassification;
 import org.junit.Test;
+
+import java.time.LocalDateTime;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
@@ -28,13 +35,6 @@ public class TyphoonParserTest {
             "1111111111" + "1111111111" + "1111" + /* CRC 24*/
             "";
     TyphoonParser typhoonParser = new TyphoonParser();
-    Typhoon typhoon = typhoonParser.parse(qzqms);
-
-    @Test
-    public void TyphoonParserToString() {
-        Typhoon typhoon = typhoonParser.parse(qzqms);
-        System.out.println(typhoon.toString());
-    }
 
     @Test
     public void canGetTypeOfReferenceTimeTimeLive() {
@@ -60,8 +60,7 @@ public class TyphoonParserTest {
                 "1111111111" + "1111111111" + "1111" + /* CRC 24*/
                 "";
         Typhoon typhoon = typhoonParser.parse(qzqms);
-        TypeOfReferenceTime expected = TypeOfReferenceTime.Live;
-        assertThat(typhoon.getTypeOfReferenceTime(),is(expected));
+        assertThat(typhoon.getTypeOfReferenceTime(),is(TypeOfReferenceTime.Live));
     }
 
     @Test
@@ -88,8 +87,7 @@ public class TyphoonParserTest {
                 "1111111111" + "1111111111" + "1111" + /* CRC 24*/
                 "";
         Typhoon typhoon = typhoonParser.parse(qzqms);
-        TypeOfReferenceTime expected = TypeOfReferenceTime.Estimate;
-        assertThat(typhoon.getTypeOfReferenceTime(),is(expected));
+        assertThat(typhoon.getTypeOfReferenceTime(),is(TypeOfReferenceTime.Estimate));
     }
 
     @Test
@@ -116,63 +114,30 @@ public class TyphoonParserTest {
                 "1111111111" + "1111111111" + "1111" + /* CRC 24*/
                 "";
         Typhoon typhoon = typhoonParser.parse(qzqms);
-        TypeOfReferenceTime expected = TypeOfReferenceTime.Forecast;
-        assertThat(typhoon.getTypeOfReferenceTime(),is(expected));
+        assertThat(typhoon.getTypeOfReferenceTime(),is(TypeOfReferenceTime.Forecast));
     }
 
     @Test
-    public void canGetElapsedTimeFromReferenceTime() {
-        int expected = 50;
-        assertThat(typhoon.getElapsedTimeFromReferenceTime(),is(expected));
-    }
-
-    @Test
-    public void canGetTyphoonNumber() {
-        int expected = 99;
-        assertThat(typhoon.getTyphoonNumber(),is(expected));
-    }
-
-    @Test
-    public void canGetScaleCategory() {
-        ScaleCategory expected = ScaleCategory.scaleCategorySuperScale;
-        assertThat(typhoon.getScaleCategory(),is(expected));
-    }
-
-    @Test
-    public void canGetIntensityCategory() {
-        IntensityCategory expected = IntensityCategory.intensitycategoryTyphoon;
-        assertThat(typhoon.getIntensityCategory(),is(expected));
-    }
-
-    @Test
-    public void canGetLatitudeNorth() {
-        boolean expected = true;
-        assertThat(typhoon.getNorthLatitude(),is(expected));
-        assertThat(typhoon.isNorthLatitude(),is(expected));
-    }
-
-    @Test
-    public void canGetLongitudeEast() {
-        boolean expected = true;
-        assertThat(typhoon.getEastLongitude(),is(expected));
-        assertThat(typhoon.isEastLongitude(),is(expected));
-    }
-
-    @Test
-    public void canGetCentralPressure() {
-        int expected = 1013;
-        assertThat(typhoon.getCentralPressure(),is(expected));
-    }
-
-    @Test
-    public void canGetMaximunWindSpeed() {
-        int expected = 100;
-        assertThat(typhoon.getMaximumWindSpeed(),is(expected));
-    }
-
-    @Test
-    public void canGetMaximunGuestSpeed() {
-        int expected = 101;
-        assertThat(typhoon.getMaximumGustSpeed(),is(expected));
+    public void parseTyphoonTest() {
+        Typhoon typhoon = typhoonParser.parse("0101001110101101111001000000010011100111100000000000000001001100000000010000000000000000000011000100000001001001111000000000110110010001100000001111100010001001000110010000000000000000000000000000000000000000000000000001001000000010000000111101111001000000");
+        assertThat(typhoon.getPrefix().getPreamble(),is(Preamble.PatternA));
+        assertThat(typhoon.getPrefix().getMessageType(),is(MessageType.MT43));
+        assertThat(typhoon.getPrefix().getReportClassification(), is(ReportClassification.Regular));
+        assertThat(typhoon.getPrefix().getDisasterCategory(),is(DisasterCategory.Typhoon));
+        assertThat(typhoon.getPrefix().getReportTime(),is(LocalDateTime.of(2020,8,1,7,15)));
+        assertThat(typhoon.getPrefix().getInformationType(),is(InformationType.Issue));
+        assertThat(typhoon.getReferenceTime(),is(LocalDateTime.of(2020,8,1,6,0)));
+        assertThat(typhoon.getTypeOfReferenceTime(),is(TypeOfReferenceTime.Live));
+        assertThat(typhoon.getElapsedTimeFromReferenceTime(),is(0));
+        assertThat(typhoon.getTyphoonNumber(),is(3));
+        assertThat(typhoon.getScaleCategory(),is(ScaleCategory.LargeScale));
+        assertThat(typhoon.getIntensityCategory(),is(IntensityCategory.None));
+        assertTrue(typhoon.getNorthLatitude());
+        assertTrue(typhoon.isNorthLatitude());
+        assertTrue(typhoon.getEastLongitude());
+        assertTrue(typhoon.isEastLongitude());
+        assertThat(typhoon.getCentralPressure(),is(994));
+        assertThat(typhoon.getMaximumWindSpeed(),is(18));
+        assertThat(typhoon.getMaximumGustSpeed(),is(25));
     }
 }
