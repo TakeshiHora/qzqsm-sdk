@@ -1,5 +1,4 @@
-package jp.ac.aiit.pbl.disaster.typhoon;
-
+import jp.ac.aiit.pbl.disaster.typhoon.Typhoon;
 import jp.ac.aiit.pbl.disaster.DisasterParser;
 import jp.ac.aiit.pbl.disaster.prefix.Prefix;
 import jp.ac.aiit.pbl.disaster.prefix.PrefixParser;
