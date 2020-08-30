@@ -115,7 +115,12 @@ public class Hypocenter implements Disaster {
     public DisasterCategory getDisasterCategory() {
         return prefix.getDisasterCategory();
     }
-    
+
+    @Override
+    public Prefix getDisasterPrefix() {
+        return this.getPrefix();
+    }
+
     @Override
     public String toString() {
         return "Hypocenter{" +

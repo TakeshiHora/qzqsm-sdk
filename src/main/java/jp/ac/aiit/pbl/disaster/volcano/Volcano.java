@@ -14,9 +14,13 @@ import java.util.List;
 
 public class Volcano implements Disaster {
     private Prefix prefix;
+
     private LocalDateTime activityTime;                     //Activity Time(Td)Day(D1)  Hour(H1) Minute(M1)
+
     private WarningCode warningCode;                 //Warning Code(Dw)
+
     private VolcanoName volcanoName;                        //Volcano Name(Vo)
+
     private List<LocalGovernment> localGovernments;
 
     public Prefix getPrefix() {
@@ -73,5 +77,10 @@ public class Volcano implements Disaster {
     @Override
     public DisasterCategory getDisasterCategory() {
         return prefix.getDisasterCategory();
+    }
+
+    @Override
+    public Prefix getDisasterPrefix() {
+        return this.getPrefix();
     }
 }

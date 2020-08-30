@@ -15,19 +15,33 @@ import java.time.ZonedDateTime;
 public class Typhoon implements Disaster {
 
     private Prefix prefix;
+
     private LocalDateTime referenceTime;
+
     private ZonedDateTime referenceTimeDayZone;
+
     private TypeOfReferenceTime typeOfReferenceTime;
+
     private int elapsedTimeFromReferenceTime;
+
     private int typhoonNumber;
+
     private ScaleCategory scaleCategory;
+
     private IntensityCategory intensityCategory;
+
     private boolean northLatitude;
+
     private double latitude;
+
     private boolean eastLongitude;
+
     private double longitude;
+
     private int centralPressure;
+
     private int maximumWindSpeed;
+
     private int maximumGustSpeed;
 
     public Prefix getPrefix() {
@@ -184,5 +198,10 @@ public class Typhoon implements Disaster {
     @Override
     public DisasterCategory getDisasterCategory() {
         return this.prefix.getDisasterCategory();
+    }
+
+    @Override
+    public Prefix getDisasterPrefix() {
+        return this.getPrefix();
     }
 }
