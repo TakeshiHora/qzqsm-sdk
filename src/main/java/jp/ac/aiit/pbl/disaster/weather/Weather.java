@@ -8,8 +8,11 @@ import jp.ac.aiit.pbl.disaster.prefix.Prefix;
 import java.util.List;
 
 public class Weather implements Disaster {
+
     private Prefix prefix;
+
     private WarningState warningState;
+
     private List<WeatherSubcategoryAndRegion> weatherSubcategoryAndRegions;
 
     public Prefix getPrefix() {
@@ -42,5 +45,10 @@ public class Weather implements Disaster {
     @Override
     public DisasterCategory getDisasterCategory() {
         return prefix.getDisasterCategory();
+    }
+
+    @Override
+    public Prefix getDisasterPrefix() {
+        return this.getPrefix();
     }
 }

@@ -60,4 +60,9 @@ public class NorthwestPacificTsunami implements Disaster {
     public DisasterCategory getDisasterCategory() {
         return this.prefix.getDisasterCategory();
     }
+
+    @Override
+    public Prefix getDisasterPrefix() {
+        return this.getPrefix();
+    }
 }

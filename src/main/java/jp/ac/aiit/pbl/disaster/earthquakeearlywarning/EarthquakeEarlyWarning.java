@@ -123,4 +123,9 @@ public class EarthquakeEarlyWarning implements Disaster {
     public DisasterCategory getDisasterCategory() {
         return prefix.getDisasterCategory();
     }
+
+    @Override
+    public Prefix getDisasterPrefix() {
+        return this.getPrefix();
+    }
 }
