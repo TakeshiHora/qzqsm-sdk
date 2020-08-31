@@ -1,4 +1,4 @@
-package jp.ac.aiit.pbl.disaster.nankaitroughearthquake;
+package jp.ac.aiit.pbl.disaster.nankaiTroughEarthquake;
 
 import jp.ac.aiit.pbl.disaster.Disaster;
 import jp.ac.aiit.pbl.disaster.DisasterCategory;
