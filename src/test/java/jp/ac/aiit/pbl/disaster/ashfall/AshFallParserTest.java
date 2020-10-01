@@ -30,7 +30,7 @@ public class AshFallParserTest {
         assertThat(ashFall.getPrefix().getReportClassification(),is(ReportClassification.Regular));
         assertThat(ashFall.getPrefix().getDisasterCategory(),is(DisasterCategory.AshFall));
         assertThat(ashFall.getPrefix().getInformationType(),is(InformationType.Issue));
-        assertThat(ashFall.getActivityTime(),is(LocalDateTime.of(2020,8,10,4,00)));
+        assertThat(ashFall.getActivityTime(),is(LocalDateTime.of(LocalDateTime.now().getYear(),LocalDateTime.now().getMonthValue(),10,4,00)));
         assertThat(ashFall.getWarningtype(),is(WarningType.AshFallForecastDetailed));
         assertThat(ashFall.getVolcanoName(),is(VolcanoName.NewActiveVolcano));
         assertThat(ashFall.getAshFallTimeWarningCodeLocalGovernments().get(0).getExpectedAshFall(),is(1));

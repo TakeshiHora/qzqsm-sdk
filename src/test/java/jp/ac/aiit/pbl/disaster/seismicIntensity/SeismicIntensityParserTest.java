@@ -31,7 +31,7 @@ public class SeismicIntensityParserTest {
         
         assertThat(seismicIntensity.getDisasterCategory(), is(DisasterCategory.SeismicIntensity));
         assertThat(seismicIntensity.getRegions().size(), is(16));
-        assertThat(seismicIntensity.getOccurrenceTime(), is(LocalDateTime.of(2020,8,5,17,7)));
+        assertThat(seismicIntensity.getOccurrenceTime(), is(LocalDateTime.of(LocalDateTime.now().getYear(),LocalDateTime.now().getMonthValue(),5,17,7)));
         assertThat(seismicIntensity.getRegions().get(0).getPrefecture(), is(Prefecture.Shizuoka));
         assertThat(seismicIntensity.getRegions().get(0).getWarning(), is(Warning.SeismicIntensity6Lower));
         assertThat(seismicIntensity.getRegions().get(1).getPrefecture(), is(Prefecture.Fukushima));

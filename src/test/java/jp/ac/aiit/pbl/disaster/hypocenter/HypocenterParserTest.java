@@ -123,7 +123,7 @@ public class HypocenterParserTest {
         Hypocenter hypocenter = hypocenterParser.parse("110001101010110110010010110001010001011010000000000000011001010011110010011011110101100010001110000000000000101000000010111001111001111001111000001111001111001111000000000000000000000000000000000000000000000000000000000000000");
         
         assertThat(hypocenter.getDisasterCategory(), is(DisasterCategory.Hypocenter));
-        assertThat(hypocenter.getOccurrenceTimeOfEarthquake(), is(LocalDateTime.of(2020,8,05,17,7)));
+        assertThat(hypocenter.getOccurrenceTimeOfEarthquake(), is(LocalDateTime.of(LocalDateTime.now().getYear(),LocalDateTime.now().getMonthValue(),05,17,7)));
         assertThat(hypocenter.getDepthOfHypocenter(), is(0));
         assertThat(hypocenter.getMagnitude(), is(10.1));
         assertThat(hypocenter.getNotifications().size(), is(3));
