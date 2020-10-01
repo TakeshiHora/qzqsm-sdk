@@ -26,7 +26,7 @@ public class VolcanoParserTest {
             assertThat(volcano.getPrefix().getDisasterCategory(),is(DisasterCategory.Volcano));
             assertThat(volcano.getPrefix().getInformationType(),is(InformationType.Issue));
             assertThat(volcano.getMessageType(),is(MessageType.MT43));
-            assertThat(volcano.getActivityTime(),is(LocalDateTime.of(2020,8,10,4,0)));
+            assertThat(volcano.getActivityTime(),is(LocalDateTime.of(LocalDateTime.now().getYear(),LocalDateTime.now().getMonthValue(),10,4,0)));
             assertThat(volcano.getVolcanoName(),is(VolcanoName.Shiretokoiozan));
             assertThat(volcano.getWarningCode(),is(WarningCode.EruptionWarning));
             assertThat(volcano.getLocalGovernments().get(0),is(LocalGovernment.HokkaidoTsuruimura));
